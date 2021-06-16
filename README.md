@@ -34,4 +34,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
+* David Bloomfield: david.s.bloomfield@gmail.com
