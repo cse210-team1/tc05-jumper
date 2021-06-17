@@ -19,7 +19,10 @@ class Console:
         Returns:
             float: The user's input as a string.
         """
-        return str(input(prompt))
+        x = str(input(prompt))
+        y = x.lower()
+        prompt = y
+        return prompt
         
     def write(self, text):
         """Displays the given text on the screen. 
