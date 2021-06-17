@@ -1,4 +1,14 @@
 class Jumper:
+
+    """
+    
+    Stereotype:
+        
+
+    Attributes:
+        
+    """
+
     def __init__(self):
         self.lives = 0
         self.pic = ["  ___  \n", " /___\ \n", " \   / \n", "  \ /  \n",
