@@ -36,3 +36,4 @@ root                    (project root folder)
 ---
 * David Bloomfield: david.s.bloomfield@gmail.com
 * TJ Putnam: teetothejay13@gmail.com
+* Jacob Cloward: jcloward@byui.edu
