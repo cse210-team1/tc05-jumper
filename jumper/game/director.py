@@ -12,7 +12,7 @@ class Director:
         self._jumper = Jumper()
         self._console = Console()
         
-    def game_run(self):
+    def start_game(self):
         """ Starts the game and handles the game loop"""
         self._console.write("Welcome to Jumper!")
         self._console.write(self._jumper.pic_string)
@@ -33,7 +33,7 @@ class Director:
         
 
     def do_outputs(self):
-        self._console.write(self._target.guess)
+        self._console.write(self._target.str_guess)
         self._console.wrtie(self._jumper.pic_string)
 
     def do_updates(self):
