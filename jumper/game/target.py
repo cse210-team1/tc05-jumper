@@ -38,7 +38,7 @@ class Target:
            Also assigns self.guess with the correct amount of underscores.
 
         Args: 
-            self (Target): An instance of Target.
+            self (Target): A single instance of Target.
             
         Returns:
             Nothing.
@@ -47,7 +47,7 @@ class Target:
         whole_word = self.possible_words[number]
         self.word = list(whole_word)
         for char in self.word:
-            self.guess.append('_')
+            self.guess.append(' _ ')
 
     def check_guesses(self, guess):
         """Checks the guess against each letter in word, and if it matches any of them, returns True.
@@ -79,10 +79,9 @@ class Target:
         """
         word_index = 0
         whole_word = ""
-        guess_letter = str.lower(guess)
         for char in self.word:
-            if char == guess_letter:
-                self.guess[word_index] = guess_letter
+            if char == guess:
+                self.guess[word_index] = " " + guess + " "
             word_index += 1
         self.filled_word = whole_word.join(self.guess)
         return self.filled_word
