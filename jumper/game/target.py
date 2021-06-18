@@ -59,7 +59,7 @@ class Target:
         whole_word = self.possible_words[number]
         self.word = list(whole_word)
         for char in self.word:
-            self.guess.append(' _ ')
+            self.guess.append(' █ ')
 
     def check_guesses(self, guess):
         """Checks the guess against each letter in word, and if it matches any of them, returns True.

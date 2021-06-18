@@ -28,6 +28,7 @@ class Director:
         self._target.get_rand_word()
         self._console.write("Welcome to Jumper!")
         self._console.write(self._jumper.pic_string)
+        self._target.update_guess("")
         self._console.write(self._target.filled_word)
         while self.can_play():
             self.get_inputs()
@@ -60,6 +61,7 @@ class Director:
             return False
         
         elif self._jumper.lives >= 4:
+            self._console.write("You Lose!")
             return False
         else:
             return True
