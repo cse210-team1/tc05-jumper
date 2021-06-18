@@ -18,10 +18,13 @@ class Jumper:
 
     def remove_line(self):
         self.pic[self.lives] = "\n"
+        if self.lives >= 3:
+            self.pic[4] = "   X   \n"
         self.lives = self.lives + 1
+        
 
     def to_string(self):
-        x = self.pic
-        self.pic_string = "" # Is this needed now that we have it on line 16 as well?
-        for i in x:
+        self.pic 
+        self.pic_string = ""
+        for i in self.pic:
             self.pic_string += i

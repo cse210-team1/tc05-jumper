@@ -25,9 +25,10 @@ class Director:
 
     def start_game(self):
         """ Starts the game and handles the game loop"""
+        self._target.get_rand_word()
         self._console.write("Welcome to Jumper!")
         self._console.write(self._jumper.pic_string)
-        self._console.write(self._target.guess)
+        self._console.write(self._target.filled_word)
         while self.can_play():
             self.get_inputs()
             self.do_outputs()
@@ -36,17 +37,20 @@ class Director:
     def get_inputs(self):
         """Gets the guess from the user through the console"""
         guess = self._console.read_char("Guess a letter: [a-z] ")
-        if self._target.check_guesses(guess):
-            self._target.update_guesses()
-        else:
+        if not self._target.check_guesses(guess):
             self._jumper.remove_line()
+        self._target.update_guess(guess)
+
+
 
 
     def do_outputs(self):
         """Passes the outputs (the list of guesses and picture) to the console which displays
         it to the user"""
-        self._console.write(self._target.filled_word)
+        
+        self._jumper.to_string()
         self._console.write(self._jumper.pic_string)
+        self._console.write(self._target.filled_word)
 
 
     def can_play(self):
