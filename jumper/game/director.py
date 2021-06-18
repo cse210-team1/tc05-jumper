@@ -3,7 +3,17 @@ from game.console import Console
 from game.jumper import Jumper 
 
 class Director:
+    """Core of the progran.  This class is resonable for coordinating the classes
+    so they work together.  It orginzes output and send it to the user, and gathers inputs.
     
+    Stereotype:
+        Coordinater
+    
+    Atributes:
+        _target (Target object): Holds info about the word to be guessed
+        _jumper (Jumper object): Holds info about the jumper, like how many lives are left
+        _console (Console object): Maneges inputs and outputs.
+    """
     
     
     def __init__(self):
@@ -11,7 +21,8 @@ class Director:
         self._target = Target()
         self._jumper = Jumper()
         self._console = Console()
-        
+
+
     def start_game(self):
         """ Starts the game and handles the game loop"""
         self._console.write("Welcome to Jumper!")
@@ -21,7 +32,8 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
-        
+
+
     def get_inputs(self):
         """Gets the guess from the user through the console"""
         guess = self._console.read_char("Guess a letter: [a-z] ")
@@ -30,16 +42,16 @@ class Director:
         else:
             self._jumper.remove_line()
 
-        
 
     def do_outputs(self):
+        """Passes the outputs (the list of guesses and picture) to the console which displays
+        it to the user"""
         self._console.write(self._target.str_guess)
         self._console.wrtie(self._jumper.pic_string)
 
-    def do_updates(self):
-        pass
+
     def can_play(self):
-        if jumper.lives >= 4:
+        if self._jumper.lives >= 4:
             return False
         else:
             return True

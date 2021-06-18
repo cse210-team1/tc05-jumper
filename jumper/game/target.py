@@ -54,10 +54,10 @@ class Target:
 
         Args: 
             self (Target): An instance of Target.
-
+            guess (str): A single letter character.
             
         Returns:
-            Nothing.
+            Bool: If the guess was correct or not.
         """
         guess_is_correct = False
         guess_letter = str.lower(guess)
@@ -67,6 +67,16 @@ class Target:
         return guess_is_correct
 
     def update_guess(self, guess):
+        """Takes the guess and converts underscores into the guessed letter, in the places that
+           letter goes in word.
+
+        Args: 
+            self (Target): An instance of Target.
+            guess (str): A single letter character.
+            
+        Returns:
+            filled_word (str): The self.guess list compressed into a string.
+        """
         word_index = 0
         whole_word = ""
         guess_letter = str.lower(guess)
