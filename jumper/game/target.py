@@ -38,7 +38,7 @@ class Target:
            Also assigns self.guess with the correct amount of underscores.
 
         Args: 
-            self (Target): An instance of Target.
+            self (Target): A single instance of Target.
             
         Returns:
             Nothing.
