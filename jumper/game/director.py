@@ -43,21 +43,23 @@ class Director:
 
 
 
-
     def do_outputs(self):
         """Passes the outputs (the list of guesses and picture) to the console which displays
         it to the user"""
         
-<<<<<<< HEAD
+
         self._jumper.to_string()
-=======
->>>>>>> main
         self._console.write(self._jumper.pic_string)
         self._console.write(self._target.filled_word)
 
 
     def can_play(self):
-        if self._jumper.lives >= 4:
+        
+        if self._target.word == self._target.guess:
+            self._console.write("You Win!")
+            return False
+        
+        elif self._jumper.lives >= 4:
             return False
         else:
             return True

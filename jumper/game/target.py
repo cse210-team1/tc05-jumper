@@ -1,6 +1,6 @@
-from hashlib import new
+
 import random
-from typing import NewType
+
 
 class Target:
     """A code template for a word that is being searched for. The responsibility of this 
@@ -28,11 +28,22 @@ class Target:
         Returns:
             Nothing.
         """
-        self.possible_words = ["kayak", "banana", "dog", "firetruck", "teacher", "capatalism"]
+        self.possible_words = self.load_word_file()
         self.word = []   # ex: ['B', 'a', 't']
         self.guess = []    # ex: ['_', 'a', '_']
         self.filled_word = ""   # ex: ['_a_']
 
+
+    def load_word_file(self):
+        """Opens a word file for randome word selection"""
+        with open("game/words.txt") as word_file:
+            inner_text = word_file.read().strip()
+            text_lines = inner_text.split()
+            words = []
+            for line in text_lines:
+                words.append(line)
+            return words
+            
     def get_rand_word(self):
         """Selects a random word from possible_words, breaks it into characters, and assigns it to word.
            Also assigns self.guess with the correct amount of underscores.
@@ -43,6 +54,7 @@ class Target:
         Returns:
             Nothing.
         """
+
         number = random.randint(0, len(self.possible_words) - 1)
         whole_word = self.possible_words[number]
         self.word = list(whole_word)
@@ -81,7 +93,7 @@ class Target:
         whole_word = ""
         for char in self.word:
             if char == guess:
-                self.guess[word_index] = " " + guess + " "
+                self.guess[word_index] = guess
             word_index += 1
         self.filled_word = whole_word.join(self.guess)
         return self.filled_word
