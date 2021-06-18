@@ -4,6 +4,8 @@ from game.jumper import Jumper
 
 class Director:
     
+    
+    
     def __init__(self):
         """Class Constructor"""
         self._target = Target()
