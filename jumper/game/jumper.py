@@ -13,6 +13,8 @@ class Jumper:
         self.lives = 0
         self.pic = ["  ___  \n", " /___\ \n", " \   / \n", "  \ /  \n",
                     "   0   \n", "  /|\ \n", "  / \  \n", "\n", "^^^^^^^\n"]
+        self.pic_string = ""
+        self.to_string()
 
     def remove_line(self):
         self.pic[self.lives] = "\n"
