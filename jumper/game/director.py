@@ -48,6 +48,10 @@ class Director:
         """Passes the outputs (the list of guesses and picture) to the console which displays
         it to the user"""
         
+<<<<<<< HEAD
+        self._jumper.to_string()
+=======
+>>>>>>> main
         self._console.write(self._jumper.pic_string)
         self._console.write(self._target.filled_word)
 
