@@ -30,15 +30,14 @@ class Director:
         self._console.write(self._target.guess)
         while self.can_play():
             self.get_inputs()
-            self.do_updates()
             self.do_outputs()
 
 
     def get_inputs(self):
         """Gets the guess from the user through the console"""
         guess = self._console.read_char("Guess a letter: [a-z] ")
-        if self._target.check_guess(guess):
-            self._target.update_guess()
+        if self._target.check_guesses(guess):
+            self._target.update_guesses()
         else:
             self._jumper.remove_line()
 
@@ -46,8 +45,8 @@ class Director:
     def do_outputs(self):
         """Passes the outputs (the list of guesses and picture) to the console which displays
         it to the user"""
-        self._console.write(self._target.str_guess)
-        self._console.wrtie(self._jumper.pic_string)
+        self._console.write(self._target.filled_word)
+        self._console.write(self._jumper.pic_string)
 
 
     def can_play(self):
